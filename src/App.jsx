@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
+import {
+  CategoriesSectionComponents,
+  ContainerComponents,
+  FooterComponents,
+  HeaderComponents,
+} from "./components";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <HeaderComponents />
+      <ContainerComponents>
+        <CategoriesSectionComponents />
+        <FooterComponents />
+      </ContainerComponents>
+    </>
+  );
+};
 
-export default App
+export default App;
