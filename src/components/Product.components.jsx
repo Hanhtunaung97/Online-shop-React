@@ -12,7 +12,7 @@ const ProductComponents = ({
   },
 }) => {
   return (
-    <div className="border border-slate-400 rounded-lg p-3 flex gap-y-3 flex-col hover:scale-105 hover:shadow group duration-200 ">
+    <div className="border border-slate-400 rounded-lg p-3 flex gap-y-4 flex-col hover:scale-105 hover:shadow group duration-200 ">
       <div className="mb-1 ">
         <img src={image} alt="" className="h-24 ms-4 -mt-12 group-hover:-rotate-6 duration-150" />
       </div>
@@ -23,7 +23,7 @@ const ProductComponents = ({
         <p className="text-slate-500 line-clamp-3 ">{description}</p>
       </div>
       <RatingComponents rating={{ rate, count }} />
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center mb-3">
         <p className="text-slate-600 font-semibold">
           Price <span>${price}</span>
         </p>
