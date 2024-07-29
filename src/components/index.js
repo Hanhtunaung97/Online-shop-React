@@ -7,3 +7,4 @@ export { default as ProductSectionComponents } from "./ProductSection.components
 export { default as ProductComponents } from "./Product.components";
 export {default as RatingComponents} from "./Rating.components"
 export {default as MainLayoutComponents} from "./MainLayout.components"
+export {default as BreadCrumbComponents} from "./BreadCrumb.components"
