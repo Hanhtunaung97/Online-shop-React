@@ -10,7 +10,7 @@ const ProductDetailPages = () => {
 
   return (
     <div>
-      <div className=" h-20 mb-10" id="categories"></div>
+      <div className=" h-20 " id="categories"></div>
       <BreadCrumbComponents breadCrumbTitle={currentProduct.title}/>
       <div className=" border border-slate-300 rounded-lg grid gap-y-10 md:gap-y-0 grid-cols-1 md:grid-cols-2 p-10 ">
         <div className="col-span-full md:col-span-1 ">

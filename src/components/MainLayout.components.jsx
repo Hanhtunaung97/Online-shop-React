@@ -10,8 +10,8 @@ const MainLayoutComponents = () => {
       <HeaderComponents />
       <ContainerComponents>
         <Outlet />
-        <FooterComponents />
       </ContainerComponents>
+      <FooterComponents />
     </>
   );
 };
