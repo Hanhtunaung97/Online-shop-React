@@ -1,13 +1,13 @@
 import React from "react";
 
-const RatingComponents = ({ rating }) => {
+const RatingComponents = ({ rating, className }) => {
   const currentRate = rating.rate.toFixed(0);
   let length = 5;
   const numbers = Array.from({ length }, (_, i) => i + 1);
   // console.log(numbers);
   return (
-    <div className="mt-auto flex items-center justify-between">
-      <div  className="flex gap-x-1">
+    <div className={`mt-auto flex items-center justify-between ${className}`}>
+      <div className="flex gap-x-1">
         {numbers.map((number) => (
           <svg
             key={number}
@@ -17,8 +17,8 @@ const RatingComponents = ({ rating }) => {
             strokeWidth={1.5}
             stroke="currentColor"
             className={`${
-              number <= currentRate && " stroke-1 fill-yellow-500"
-            } w-6 h-6`}
+              number <= currentRate && " stroke-none fill-yellow-500"
+            } w-6 h-6 stroke-1 stroke-yellow-500`}
           >
             <path
               strokeLinecap="round"
@@ -28,7 +28,7 @@ const RatingComponents = ({ rating }) => {
           </svg>
         ))}
       </div>
-      <p>
+      <p className="text-slate-500">
         ( {rating.rate} / {rating.count} )
       </p>
     </div>
