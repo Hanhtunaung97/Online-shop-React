@@ -10,12 +10,12 @@ import {
 const App = () => {
   return (
     <>
-      <HeaderComponents />
+      {/* <HeaderComponents />
       <ContainerComponents>
         <CategoriesSectionComponents />
         <ProductSectionComponents/>
         <FooterComponents />
-      </ContainerComponents>
+      </ContainerComponents> */}
     </>
   );
 };

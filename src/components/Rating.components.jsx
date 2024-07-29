@@ -4,7 +4,7 @@ const RatingComponents = ({ rating }) => {
   const currentRate = rating.rate.toFixed(0);
   let length = 5;
   const numbers = Array.from({ length }, (_, i) => i + 1);
-  console.log(numbers);
+  // console.log(numbers);
   return (
     <div className="mt-auto flex items-center justify-between">
       <div  className="flex gap-x-1">
