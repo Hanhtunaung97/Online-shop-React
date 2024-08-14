@@ -3,12 +3,13 @@ import { GoPlus, GoDash } from "react-icons/go";
 import useProductStore from "../store/useProductStore";
 import useCartStore from "../store/useCartStore";
 import SweetAlert2 from "react-sweetalert2";
+import toast from "react-hot-toast";
 const CartComponents = ({ cart: { id, productId, quantity } }) => {
   const [swalProps, setSwalProps] = useState({});
   const { products } = useProductStore();
   const { addQuantity, subQuantity, removeCart } = useCartStore();
-  const currentProduct = products.find((product) => product.id === productId);
-  const currentCost = currentProduct.price * quantity;
+  const currentProduct = products?.find((product) => product.id === productId);
+  const currentCost = currentProduct?.price * quantity;
   const handleSubBtn = () => {
     if (quantity > 1) {
       subQuantity(id);
@@ -24,6 +25,13 @@ const CartComponents = ({ cart: { id, productId, quantity } }) => {
         confirmButtonText: "Yes, remove it!",
         onConfirm: () => {
           removeCart(id);
+          toast.success("Item removed from cart!", {
+            position: "bottom-left",
+            style: {
+              background: "#363636",
+              color: "#fff",
+            },
+          });
         },
         onResolve: () => {
           setSwalProps({ show: false });
@@ -38,14 +46,14 @@ const CartComponents = ({ cart: { id, productId, quantity } }) => {
     <div>
       <div className="border border-slate-300 rounded-lg p-5 grid grid-cols-1 sm:grid-cols-6 ">
         <div className="col-span-full sm:col-span-1 mb-5 sm:mb-0">
-          <img src={currentProduct.image} alt="cart-image" className=" h-20" />
+          <img src={currentProduct?.image} alt="cart-image" className=" h-20" />
         </div>
         <div className="col-span-full sm:col-span-3 mb-5 sm:mb-0">
           <div className="flex flex-col gap-y-1 sm:gap-y-3">
             <p className="font-semibold text-slate-600 text-lg">
-              {currentProduct.title}
+              {currentProduct?.title}
             </p>
-            <p className="text-slate-400">Price: ${currentProduct.price}</p>
+            <p className="text-slate-400">Price: ${currentProduct?.price}</p>
           </div>
         </div>
         <div className="col-span-full sm:col-span-1 mb-5 sm:mb-0">

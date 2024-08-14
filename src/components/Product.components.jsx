@@ -2,6 +2,7 @@ import React from "react";
 import RatingComponents from "./Rating.components";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
+import toast from "react-hot-toast";
 
 const ProductComponents = ({
   product: {
@@ -29,6 +30,10 @@ const ProductComponents = ({
   };
   const handleAddedCartBtn = (e) => {
     e.stopPropagation();
+    toast.error("Item already added to Cart!", {
+      position: "bottom-left",
+      
+    });
   };
   return (
     <div
@@ -55,7 +60,10 @@ const ProductComponents = ({
             Price <span>${price}</span>
           </p>
           {carts.find((cart) => cart.productId == id) ? (
-            <button onClick={handleAddedCartBtn} className="bg-slate-400 border border-slate-400 text-white px-3 py-1 rounded-lg text-xs active:scale-105 duration-150 active:bg-slate-500 active:text-white">
+            <button
+              onClick={handleAddedCartBtn}
+              className="bg-slate-400 border border-slate-400 text-white px-3 py-1 rounded-lg text-xs active:scale-105 duration-150 active:bg-slate-500 active:text-white"
+            >
               Added
             </button>
           ) : (
