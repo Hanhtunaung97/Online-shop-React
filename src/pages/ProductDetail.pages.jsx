@@ -2,12 +2,21 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { BreadCrumbComponents, RatingComponents } from "../components";
 import useProductStore from "../store/useProductStore";
+import useCartStore from "../store/useCartStore";
 
 const ProductDetailPages = () => {
   const { id } = useParams();
   const { products } = useProductStore();
+  const { carts, addCart } = useCartStore();
   const currentProduct = products.find((product) => product.id == id);
-  console.log(currentProduct);
+  const handleAddCartBtn = () => {
+    const newCart = {
+      id: Date.now(),
+      productId: id,
+      quantity: 1,
+    };
+    addCart(newCart);
+  };
 
   return (
     <div>
@@ -40,9 +49,18 @@ const ProductDetailPages = () => {
               <p className=" text-slate-500 font-semibold  text-sm sm:text-base md:text-lg">
                 Price $ <span>{currentProduct.price}</span>
               </p>
-              <button className="bg-white border border-slate-400 px-3 py-1 rounded-lg text-xs active:scale-90 duration-150 active:bg-white active:text-slate-400 hover:bg-slate-400 hover:text-white">
-                Add Cart
-              </button>
+              {carts.find((cart) => cart.productId == currentProduct.id) ? (
+                <button className="bg-slate-400 border border-slate-400 text-white px-3 py-1 rounded-lg text-xs active:scale-105 duration-150 active:bg-slate-500 active:text-white">
+                  Added
+                </button>
+              ) : (
+                <button
+                  onClick={handleAddCartBtn}
+                  className="bg-white border border-slate-400 px-3 py-1 rounded-lg text-xs active:scale-105 duration-150 active:bg-white active:text-slate-400 hover:bg-slate-400 hover:text-white"
+                >
+                  Add Cart
+                </button>
+              )}
             </div>
           </div>
         </div>
