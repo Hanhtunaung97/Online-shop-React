@@ -19,11 +19,11 @@ const CartComponents = ({ cart }) => {
           <div className="flex flex-col gap-y-1 sm:gap-y-3">
             <p className="text-slate-600 font-semibold">Quantity</p>
             <div className="flex items-center gap-x-3">
-              <button className="bg-white border border-slate-500 p-1 rounded-full hover:scale-90 active:scale-90 duration-200 active:bg-white active:text-slate-500 hover:bg-slate-500 hover:text-white">
+              <button className="bg-white border border-slate-500 p-1 rounded-full hover:scale-90 active:scale-90 duration-200 active:bg-white active:text-slate-800 hover:bg-slate-800 hover:text-white">
                 <GoDash className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
               <p className="font-semibold">{cart.quantity}</p>
-              <button className="bg-white border border-slate-500 p-1 rounded-full hover:scale-90 active:scale-90 duration-200 active:bg-white active:text-slate-500 hover:bg-slate-500 hover:text-white">
+              <button className="bg-white border border-slate-500 p-1 rounded-full hover:scale-90 active:scale-90 duration-200 active:bg-white active:text-slate-800 hover:bg-slate-800 hover:text-white">
                 <GoPlus className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>

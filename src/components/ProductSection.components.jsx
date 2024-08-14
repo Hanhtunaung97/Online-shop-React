@@ -1,9 +1,9 @@
 import React from "react";
 import ProductComponents from "./Product.components";
-import products from "../data/products";
+import useProductStore from "../store/useProductStore";
 
 const ProductSectionComponents = () => {
-  
+  const {products}=useProductStore()
   return (
     <section className="mb-5">
       <h1 className="text-lg font-headings text-slate-500 mb-16">

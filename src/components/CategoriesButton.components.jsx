@@ -9,7 +9,7 @@ const CategoriesButtonComponents = ({
 }) => {
   const { categoryActive } = useCategoriesStore();
   const handleClick = () => {
-    categoryActive(category.id);
+    categoryActive(category?.id);
   };
   return (
     <button

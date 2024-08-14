@@ -1,17 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import products from "../data/products";
-import { BreadCrumbComponents, CategoriesButtonComponents, RatingComponents } from "../components";
+import { BreadCrumbComponents, RatingComponents } from "../components";
+import useProductStore from "../store/useProductStore";
 
 const ProductDetailPages = () => {
   const { id } = useParams();
+  const { products } = useProductStore();
   const currentProduct = products.find((product) => product.id == id);
   console.log(currentProduct);
 
   return (
     <div>
       <div className=" h-20 " id="categories"></div>
-      <BreadCrumbComponents breadCrumbTitle={currentProduct.title}/>
+      <BreadCrumbComponents breadCrumbTitle={currentProduct.title} />
       <div className=" border border-slate-300 rounded-lg grid gap-y-10 md:gap-y-0 grid-cols-1 md:grid-cols-2 p-10 ">
         <div className="col-span-full md:col-span-1 ">
           <div className="flex justify-center items-center w-full">
@@ -26,7 +27,9 @@ const ProductDetailPages = () => {
             <p className="bg-slate-100 font-semibold text-slate-500 px-3 py-1 inline-block rounded-lg text-sm sm:text-base">
               {currentProduct.category}
             </p>
-            <p className="text-slate-400 text-sm sm:text-base">{currentProduct.description}</p>
+            <p className="text-slate-400 text-sm sm:text-base">
+              {currentProduct.description}
+            </p>
 
             <RatingComponents
               rating={currentProduct.rating}
