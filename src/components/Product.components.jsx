@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import RatingComponents from "./Rating.components";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
 import toast from "react-hot-toast";
+import AnimationImageComponents from "./AnimationImage.components";
 
 const ProductComponents = ({
   product: {
@@ -16,6 +17,9 @@ const ProductComponents = ({
 }) => {
   const { carts, addCart } = useCartStore();
   const nav = useNavigate();
+  const [animate, setAnimate] = useState(false);
+  const [info, setInfo] = useState({});
+  const imgRef = useRef();
   const handleDetailBtn = () => {
     nav(`/product-detail/${id}`);
   };
@@ -27,14 +31,18 @@ const ProductComponents = ({
       quantity: 1,
     };
     addCart(newCart);
+    setAnimate(true);
   };
   const handleAddedCartBtn = (e) => {
     e.stopPropagation();
     toast.error("Item already added to Cart!", {
       position: "bottom-left",
-      
     });
   };
+  useEffect(() => {
+    console.log(imgRef.current.getBoundingClientRect());
+    setInfo(imgRef.current.getBoundingClientRect());
+  }, []);
   return (
     <div
       onClick={handleDetailBtn}
@@ -45,8 +53,16 @@ const ProductComponents = ({
           <img
             src={image}
             alt=""
+            ref={imgRef}
             className="h-24 ms-4 -mt-12 group-hover:-rotate-6 duration-200"
           />
+          {animate && (
+            <AnimationImageComponents
+              src={image}
+              info={info}
+              setAnimate={setAnimate}
+            />
+          )}
         </div>
         <div className=" flex flex-col gap-y-2">
           <h1 className="font-headings text-lg line-clamp-2 text-slate-600 font-semibold">

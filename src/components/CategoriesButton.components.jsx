@@ -16,8 +16,10 @@ const CategoriesButtonComponents = ({
       onClick={handleClick}
       {...rest}
       className={`${
-        category?.isActive ? "bg-slate-800 " : "bg-slate-400"
-      } text-nowrap px-3 py-1 rounded-lg hover:bg-transparent hover:border hover:border-slate-400 duration-200 hover:text-slate-400 active:scale-90 active:bg-slate-400 active:text-white text-white ${className}`}
+        category?.isActive
+          ? "bg-slate-800 text-white"
+          : "hover:bg-slate-100 border-slate-400 border text-slate-500 bg-transparent"
+      } text-nowrap px-3 py-1 rounded-lg  duration-200 hover:scale-95   active:scale-90 active:bg-slate-400 active:text-white  ${className}`}
     >
       {children}
     </button>

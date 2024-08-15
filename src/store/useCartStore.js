@@ -3,7 +3,7 @@ import { create } from "zustand";
 const carts = [
   {
     id: 1,
-    productId: 1,
+    productId: 3,
     quantity: 1,
   },
   {
