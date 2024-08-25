@@ -6,10 +6,10 @@ import useCartStore from "../store/useCartStore";
 import toast from "react-hot-toast";
 
 const ProductDetailPages = () => {
-  const { id } = useParams();
+  const { slug} = useParams();
   const { products } = useProductStore();
   const { carts, addCart } = useCartStore();
-  const currentProduct = products.find((product) => product.id == id);
+  const currentProduct = products.find((product) => product.slug == slug);
   const handleAddCartBtn = () => {
     const newCart = {
       id: Date.now(),

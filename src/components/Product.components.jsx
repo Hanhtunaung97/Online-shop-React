@@ -13,6 +13,7 @@ const ProductComponents = ({
     image,
     description,
     rating: { rate, count },
+    slug
   },
 }) => {
   const { carts, addCart } = useCartStore();
@@ -21,7 +22,7 @@ const ProductComponents = ({
   const [info, setInfo] = useState({});
   const imgRef = useRef();
   const handleDetailBtn = () => {
-    nav(`/product-detail/${id}`);
+    nav(`/product-detail/${slug}`);
   };
   const handleAddCartBtn = (e) => {
     e.stopPropagation();
@@ -40,7 +41,7 @@ const ProductComponents = ({
     });
   };
   useEffect(() => {
-    console.log(imgRef.current.getBoundingClientRect());
+    // console.log(imgRef.current.getBoundingClientRect());
     setInfo(imgRef.current.getBoundingClientRect());
   }, []);
   return (
