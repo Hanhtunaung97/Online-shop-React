@@ -11,7 +11,7 @@ const AnimationImageComponents = ({ src, info, setAnimate }) => {
     left: info.left + "px",
   };
   useEffect(() => {
-    console.log(styles, btnInfo);
+    // console.log(styles, btnInfo);
     const keyframe = [
       {
         top: info.top + "px",
@@ -31,7 +31,7 @@ const AnimationImageComponents = ({ src, info, setAnimate }) => {
       fill: "both",
     };
     const animation = imgRef.current.animate(keyframe, options);
-    console.log(keyframe);
+    // console.log(keyframe);
     const animationEnd = () => setAnimate(false);
     animation.addEventListener("finish", animationEnd);
     return () => {
